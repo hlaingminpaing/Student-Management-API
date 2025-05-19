@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration</h1>
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="studentID">Student ID</label>
+                <input type="text" id="studentID" placeholder="Enter Student ID" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter Email" required>
+            </div>
+            <div class="form-group">
+                <label for="major">Major</label>
+                <input type="text" id="major" placeholder="Enter Major" required>
+            </div>
+            <div class="form-group">
+                <label for="gpa">GPA</label>
+                <input type="number" id="gpa" placeholder="Enter GPA" step="0.01" min="0" max="4" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" id="createStudent">Create Student</button>
+                <button type="button" id="getStudent">Get Student</button>
+                <button type="button" id="updateStudent">Update Student</button>
+                <button type="button" id="deleteStudent">Delete Student</button>
+                <button type="button" id="clearForm">Clear</button>
+            </div>
+        </form>
+        <div id="studentTable" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Major</th>
+                        <th>GPA</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+            </table>
+        </div>
+        <p id="message"></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
