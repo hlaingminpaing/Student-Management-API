@@ -1,8 +1,16 @@
 import json
 import boto3
+from decimal import Decimal
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('Students')
+
+# Helper function to handle Decimal serialization
+def decimal_default(obj):
+    if isinstance(obj, Decimal):
+        # Convert to int if it's a whole number, else float
+        return int(obj) if obj % 1 == 0 else float(obj)
+    raise TypeError
 
 def lambda_handler(event, context):
     print("Event:", json.dumps(event))
@@ -38,7 +46,7 @@ def lambda_handler(event, context):
                 'Access-Control-Allow-Headers': 'Content-Type',
                 'Access-Control-Allow-Methods': 'OPTIONS,GET'
             },
-            'body': json.dumps(response['Item'])
+            'body': json.dumps(response['Item'], default=decimal_default)
         }
     except Exception as e:
         return {
