@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    const API_ENDPOINT = "https://qeb0o0b9fc.execute-api.ap-southeast-1.amazonaws.com/deploy/students";
+    const API_ENDPOINT = "https://2hbyb1dq90.execute-api.ap-southeast-7.amazonaws.com/dev/students";
+    
 
     // Create Student
     $('#studentForm').on('submit', function (event) {
@@ -22,7 +23,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: API_ENDPOINT,
+            url: `${API_ENDPOINT}/POST`,
             type: 'POST',
             data: JSON.stringify(inputData),
             contentType: 'application/json',
@@ -50,7 +51,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: `${API_ENDPOINT}/${studentId}`,
+            url: `${API_ENDPOINT}/${studentId}/GET`,
             type: 'GET',
             contentType: 'application/json',
             success: function (response) {
@@ -102,7 +103,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: `${API_ENDPOINT}/${studentId}`,
+            url: `${API_ENDPOINT}/${studentId}/PUT`,
             type: 'PUT',
             data: JSON.stringify(inputData),
             contentType: 'application/json',
@@ -130,7 +131,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: `${API_ENDPOINT}/${studentId}`,
+            url: `${API_ENDPOINT}/${studentId}/DELETE`,
             type: 'DELETE',
             contentType: 'application/json',
             success: function (response) {
