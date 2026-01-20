@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const API_ENDPOINT = "https://qeb0o0b9fc.execute-api.ap-southeast-1.amazonaws.com/deploy/students";
+    const API_ENDPOINT = "https://vwu7l4uocj.execute-api.ap-southeast-1.amazonaws.com/dev/students";
 
     // Create Student
     $('#studentForm').on('submit', function (event) {
